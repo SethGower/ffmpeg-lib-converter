@@ -13,6 +13,6 @@ cd $1
 
 for file in **/*.avi; do
     echo -e "$COL_CYAN Converting: $COL_RESET" $file
-    ffmpeg -i $file -c:v libx264 -c:a aac -metadata:s:a:0 language=eng -strict -2 $(file//.avi/.mp4)
+    ffmpeg -i "$file" -c:v libx264 -c:a aac -metadata:s:a:0 language=eng -strict -2 "$(file//.avi/.mp4)"
     rm $file
 done
