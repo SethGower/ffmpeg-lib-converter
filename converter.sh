@@ -14,13 +14,13 @@ for arg in "$@"; do
 
     for file in **/*.avi; do
         echo -e "$COL_CYAN Converting: $COL_RESET" $file
-        echo ffmpeg -i "$file" -c:v libx264 -c:a aac -metadata:s:a:0 language=eng -strict -2 "${file:0:-4}.mp4"
-        #rm "$file"
+        ffmpeg -i "$file" -c:v libx264 -c:a aac -metadata:s:a:0 language=eng -strict -2 "${file:0:-4}.mp4"
+        rm "$file"
     done
     
     for file in **/*.mkv; do
         echo -e "$COL_CYAN Converting: $COL_RESET" $file
-        echo ffmpeg -i "$file" -c:v copy -c:a aac -metadata:s:a:0 language=eng -strict -2 "${file:0:-4}.mp4"
-        #rm "$file"
+        ffmpeg -i "$file" -c:v copy -c:a aac -metadata:s:a:0 language=eng -strict -2 "${file:0:-4}.mp4"
+        rm "$file"
     done
 done
